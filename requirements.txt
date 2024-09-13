@@ -1,6 +1,5 @@
 -e rlcomponents
 -e uneven_maze
-gymnasium==0.28.1
 keras~=2.15.0
 matplotlib==3.6.3
 numpy==1.26.4
