@@ -1,6 +1,19 @@
 """Your first learning agent: template."""
 # 0 - Choose an algorithm from ray.rllib.algorithms, e.g. ray.rllib.algorithms.xxx as
 # xxxConfig
+from ray.rllib.algorithms.dqn.dqn import DQNConfig
+config =DQNConfig()
+
+config.environment(env = "CartPole-v1").framework(
+    framework = "tf2", eager_tracing = True
+).rollouts(num_rollout_workers = 4, num_envs_per_worker =2).evaluation(
+    evaluation_config = {"explore": False},
+    evaluation_duration = 10,
+    evaluation_interval = 1,
+    evaluation_duration_unit = "episodes",
+)
+
+print("hi")
 # 1 -  Build an agent
 # 1.1 - Get the default config of xxxConfig()
 # 1.2 - Examine the config by converting it to a dict via .to_dict() method
