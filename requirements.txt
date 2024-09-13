@@ -9,7 +9,7 @@ ray[default]==2.9.3
 ray[rllib]==2.9.3
 setuptools~=69.5.1
 tensorflow==2.15.0
-tqdm==4.65.0
+tqdm==4.66.5
 cloudpickle==3.0.0
 Farama-Notifications==0.0.4
 gymnasium==0.29.1
