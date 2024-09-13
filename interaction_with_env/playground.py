@@ -1,4 +1,24 @@
 import gymnasium as gym
+import numpy as np
+from tqdm import tqdm
+
+env = gym.make("CartPole-v1", render_mode = "rgb_array")
+
+total_reward= 0
+nr_episodes = 1000
+
+nr_actions = env.action_space.n
+for _ in tqdm(range(nr_episodes)):
+    env.reset()
+    terminated = False
+    truncated = False
+    while not (terminated or truncated):
+        chosen_action = np.random.randint(nr_actions)
+        s_prime, r, terminated, truncated, info = env.step(action = chosen_action)
+        total_reward += r
+
+print(total_reward / nr_episodes)
+""" import gymnasium as gym
 # Create an environment
 env = gym.make("CartPole-v1", render_mode="rgb_array")
 
@@ -19,4 +39,4 @@ env.render()
 # 2 - Interact with environment
 # 2.1 - Push the cart to the left once
 # 2.2 - Repeat the action above until the pole falls, i.e. the episode is terminated
-print("end of the script")
+print("end of the script") """
